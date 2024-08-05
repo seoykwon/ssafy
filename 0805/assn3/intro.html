@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Human{
+            constructor(name, age, word){
+                this.name = name;
+                this.age = age;
+                this.word = word;
+            }
+            sayName(){
+                console.log("이름 : " + this.name);
+            }
+            sayAge(){
+                console.log("나이 : " + this.age);
+            }
+            sayWord(){
+                console.log("자기소개 : " + this.word);
+            }
+        }
+
+        // const person1 = new Human("paul");
+
+        const person2 = new Human("olivia", 23, "Nice to meet you!");
+
+        // console.log(person1);
+        // console.log(person2.name);
+        person2.sayName();
+        person2.sayAge();
+        person2.sayWord();
+    </script>
+</body>
+</html>

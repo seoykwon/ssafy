@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Hero {
+            constructor(hp){
+                this.hp = 100;
+            }
+            showHP(){
+                console.log(this.hp);
+            }
+
+            run(){
+                this.hp = this.hp - 10;
+            }
+        }
+
+        const a = new Hero();
+
+        
+
+        let batman = new Hero();
+
+        batman.showHP();
+        batman.run();
+        batman.run();
+        batman.showHP();
+    </script>
+</body>
+</html>

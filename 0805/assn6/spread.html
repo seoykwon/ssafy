@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class Animal{
+            constructor(name, speak){
+                this.name = name;
+                this.speak = speak;
+            }
+            say(){
+                console.log(this.name + "이 소리를 내며 짖습니다.");
+            }
+        }
+
+        class Cat{
+            constructor(name, speak){
+                // super(name, speak);
+                this.name = name;
+                this.speak = speak;
+            }
+            say(){
+                console.log(this.name + "이 "+ this.speak +" 소리를 냅니다.");
+            }
+        }
+
+        class Dog extends Animal{
+            constructor(name, speak){
+                super(name, speak);
+                // this.name = name;
+                // this.speak = speak;
+            }
+            say(){
+                console.log(this.name + "이 "+ this.speak +" 소리를 냅니다.");
+            }
+        }
+
+        const luri = new Dog("루리", "멍멍");
+        console.log(luri);
+        luri.say();
+
+        const san = new Cat("산", "야옹");
+        console.log(san);
+        san.say();
+
+        // const square = {
+        //     width : 200,
+        //     height : 400
+        // }
+
+        // const colorSquare = {
+        //     ...square,
+        //     color : "red"
+        // }
+        // colorSquare.height = 500;
+
+        
+
+        // square.width=240;
+
+
+        // console.log(square);
+        // console.log(colorSquare);
+
+        // // 배열
+        // const catTypeAnimals = ['고양이', '호랑이'];
+        // const dogTypeAnimals = ['개', '늑대'];
+
+        // const allTypeAnimals = [...catTypeAnimals, ...dogTypeAnimals, "비버"];
+
+        // console.log(allTypeAnimals);
+
+        
+    </script>
+</body>
+</html>

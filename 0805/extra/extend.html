@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Hero{
+            constructor(hp){
+                this.hp = hp
+            }
+            run(){
+                this.hp = this.hp - 10;
+            }
+        }
+
+        class SuperMan extends Hero{
+            constructor(hp){
+                super(hp);
+                this.mp = 200
+            }
+            fly(){
+                console.log("fly")
+            }
+        }
+        const Hero = new Hero();
+        const superman = new SuperMan();
+
+        hero.fly();
+        superman.fly();
+        console.log(superman)
+        
+    </script>
+</body>
+</html>

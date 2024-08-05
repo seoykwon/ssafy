@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>클릭</button>
+    
+    
+    <script>
+        // function onButtonClick() {
+        //     alert('안녕!');
+        // }
+        // const button = document.querySelector('button');
+        // button.addEventListener('click', onButtonClick);
+        // 버튼 요소를 가져옵니다.
+        // let btn = document.createElement('button');
+        // let txt = '안녕!'
+        // btn.append(txt);
+        const button = document.querySelector('button');
+        button.addEventListener("click", function() {
+            var newDiv = document.createElement("div");
+            newDiv.textContent = "안녕!";
+            document.body.append(newDiv);
+        });
+
+    </script>
+</body>
+</html>

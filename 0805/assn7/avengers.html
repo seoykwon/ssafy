@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person{
+            constructor(name, hp){
+                this.name = name;
+                this.hp = hp;
+            }
+            hello(){
+                console.log(this.name);
+            }
+        }
+
+        class Avengers extends Person{
+            constructor(name, hp, power, skill){
+                super(name, hp);
+                this.power = power;
+                this.skill = skill;
+            }
+            info(){
+                console.log(this.name + ", hp: " + this.hp + ", power: " + this.power + ", skill: " + this.skill);
+            }
+            fly(){
+                console.log("비행중");
+            }
+        }
+
+        const ironMan = new Avengers('Iron Man', 100, 10000, "미사일");
+        ironMan.info();
+        ironMan.fly();
+    </script>
+</body>
+</html>
