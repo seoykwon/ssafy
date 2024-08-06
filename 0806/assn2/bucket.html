@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const bucketList = [
+            {
+                id: 1,
+                text: "여행 가기",
+                done: false,
+            },
+            {
+                id: 2,
+                text: "치킨 먹기",
+                done: true,
+            },
+            {
+                id: 3,
+                text: "코딩 하기",
+                done: true,
+            },
+            {
+                id: 4, 
+                text: "요리 하기",
+                done: false,
+            },
+        ];
+
+        const newSquare = bucketList.filter((data) => data.done === false)
+        console.log(newSquare);
+    </script>
+</body>
+</html>

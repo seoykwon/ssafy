@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const bucketLists = [
+            {id: 3, text: '여행가기', done: false},
+            {id: 2, text: '치킨 먹기', done: true},
+            {id: 1, text: '코딩 하기', done: false}
+        ];
+
+        function addList(List){
+            // createElement = 화면에 추가하는 것
+            // const element = document.createElement("div");
+
+            // element.textContent = List["id"];
+            // element.textContent += List["text"];
+            // element.textContent += List.done;
+
+            // bucketLists.append(element);
+            bucketLists.push(List);
+
+// predicate // SQL에서는 select의 조건, 정렬에서는 cmp() 이런거
+
+            bucketLists.sort((a,b) => {
+                return a.id - b.id
+            });
+
+        }
+
+        addList({id: 4, content: '요리하기', completed: true});
+
+
+
+        console.log(bucketLists);
+    </script>
+</body>
+</html>

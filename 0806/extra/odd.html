@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const test = (value) => {
+            console.log(value)
+        }
+
+        // const arr = [3, 5, 4, 2];
+        // arr.forEach(test);
+
+        function test2(value){
+            console.log(value)
+        }
+        
+        let count = 0;
+        // const arr = [3,5,4,2];
+        const arr = [4,3,5,1,6,5];
+        // arr.forEach(test2);
+        arr.forEach((value) => {
+            if(value % 2 === 1){
+                console.log(value)
+                count++;
+            }
+        });
+
+        console.log(count);
+
+
+        const array = [-5,3,4,2,-7,-2,7];
+        const plusArray = new Array();
+        const minusArray = [];
+
+        array.forEach((el) => {
+            if (el > 0){
+                plusArray.push(el);
+            }
+            else {
+                minusArray.push(el);
+            }
+        })
+
+        console.log(plusArray);
+        console.log(minusArray);
+
+        const datas = [1,2,3,4,5];
+        console.log(datas.some((data) => data>4));
+        console.log(datas.some((data) => data>0));
+
+        console.log(datas.find(data => data>4));
+
+    </script>
+</body>
+</html>

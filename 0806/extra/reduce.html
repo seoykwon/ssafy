@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const datas = [1,2,3,4,5];
+
+        // const accResult = datas.reduce((acc, cur) => 
+        //     acc + cur
+        // )
+
+        // console.log(accResult)
+
+        // let newDatas = datas.reduce((acc, cur) => {
+        //     const data = cur * cur;
+        //     acc.push(data);
+        //     return acc;
+        // }, [])
+
+        // let filterDatas = datas.reduce((acc, cur) => {
+        //     if(cur>2){
+        //         acc.push(cur)
+        //     }
+        //     return acc;
+        // }, [])
+
+        // console.log(filterDatas)
+
+        const arr = ["피카츄", "라이츄", "파이리", "꼬부기", "피카츄", "파이리"];
+        // acc = {}
+        const result = arr.reduce((acc, cur) => {
+            if((acc)[cur]){
+                if(acc[cur]){
+                    acc[cur] = acc[cur] + 1
+                }
+                else{
+                    // acc[cur] = acc[cur] + 1
+                    acc[cur] = 1
+                }
+            }
+        }, {})
+
+        console.log(result)
+
+
+        console.log("1");
+        setTimeout(() => {
+            console.log("2");
+        }, 1000)
+
+        console.log("3");
+        
+    </script>
+</body>
+</html>
