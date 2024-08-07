@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 웹페이지가 로딩되자마자 실행되는 함수
+        window.onload = function() {
+            // 1. 웹페이지가 로딩되자마자 HI 출력
+            console.log('HI');
+            
+            // 2. 0.5초 후 First 출력
+            setTimeout(function() {
+                console.log('First');
+                
+                // 3. 1초 후 Second 출력
+                setTimeout(function() {
+                    console.log('Second');
+                    
+                    // 4. 2초 후 Third 출력
+                    setTimeout(function() {
+                        console.log('Third');
+                    }, 2000); // 2초 대기
+                }, 1000); // 1초 대기
+            }, 500); // 0.5초 대기
+        };
+
+    </script>
+</body>
+</html>

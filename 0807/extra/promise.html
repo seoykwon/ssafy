@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function delay(ms){
+            return new Promise((resolve, reject) => {
+                if (ms < 0){
+                    reject(new Error("지연 시간은 양수 이어야 합니다."));
+                }
+                else{
+                    setTimeout(() => {
+                        resolve(`${`${ms} 초 후 완료`}`)
+                    }, ms)
+                    
+                }
+            })
+        }
+
+        delay(500).then(result => {
+            console.log("첫번째 작업 완료 : ", result)
+        }).catch(error => {
+            console.error("오류 발생", error.message);
+        })
+
+        // promise chaining
+        delay(500).then(result => {
+            console.log("첫 번째 작업 완료 : ", result);
+            return delay(1000)
+        })
+        .then(result => {
+            console.log("두 번째 작업 완료 : ", result);
+            return delay(1500)
+        })
+        .then(result => {
+            console.log("세 번째 작업 완료 : ", result);
+        })
+        .catch(error => {
+            console.error("오류 발생: ", error.message);
+        })
+
+        
+    </script>
+</body>
+</html>
