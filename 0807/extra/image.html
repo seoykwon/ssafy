@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const url = "https://www.googleapis.com/youtube/v3";
+        const cardContainer = document.querySelector("");
+
+        const key = "AIzaSyDEJ7wQUEK6jwmywMAxGxdfZ9YUKUiATmA";
+        async function getData() {
+            const result = await axios.get(url);
+            console.log(result);
+        }
+        getData();
+
+        function imageComponent() {
+            console.log(data);
+
+            return `
+            <div>
+                <div>Author: ${data.author} </div>
+                <img src="">
+                </div>
+            `
+        }
+    </script>
+</body>
+</html>

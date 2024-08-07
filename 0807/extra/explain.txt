@@ -1,0 +1,46 @@
+비동기 처리
+순서가 보장이 안되는 단점
+
+순서가 필요한 작업들이 있을 수 있다.
+-> 콜백 함수 안에 콜백 함수를 넣어서 해결
+
+Async 함수들로 Sync 동작을 구현하는 코드 = callback
+
+콜백 지옥 보완하기 위해 => promise
+
+rejected = when result gets rejected
+
+when calling promise, pending situation occurs.
+when you print out on the console, it says pending.
+
+if you succeed on calling, it is "fulfilled" status
+
+if you fail on calling, it is "reject" status
+
+대부분의 경우는 이미 promise 된 비동기 함수를 사용하는 것만 한다
+
+then -> 성공했을 때, 내가 할 행동
+catch -> 실패했을 때, 내가 할 행동
+
+AJAX = Asynchronous Javascript and XML
+비동기 통신을 하는 기술
+
+XHR
+- 콜백함수 구현
+- js 내장
+
+fetch
+- promise 구현
+- js 내장
+- get, post 요청 
+{
+    method : post,
+    header : 
+}
+
+axios
+- promise 구현
+- 외부 라이브러리 cdn
+- 결과가 json 파싱되어서 쓸 수 있다
+- axios.get(), axios.post()
+
