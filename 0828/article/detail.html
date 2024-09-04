@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>게시글 상세조회</h1>
+    <div>
+      <span>id: </span>
+      <span class="id-data">id</span>
+    </div>
+    <div>
+      <span>title: </span>
+      <span class="title-data">title</span>
+    </div>
+    <div>
+      <span>content: </span>
+      <span class="content-data">content</span>
+    </div>
+    <div>
+      <span>createdAt: </span>
+      <span class="created-at-data">createdAt</span>
+    </div>
+    <div>
+      <span>updatedAt: </span>
+      <span class="updated-at-data">updatedAt</span>
+    </div>
+
+    <a class="update-link" href="#">게시글 수정</a>
+    <button class="delete-btn">게시글 삭제</button>
+    <br />
+    <a href="./list.html">게시글 목록으로 돌아가기</a>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.13/dayjs.min.js"
+      integrity="sha512-FwNWaxyfy2XlEINoSnZh1JQ5TRRtGow0D6XcmAWmYCRgvqOUTnzCxPc9uF35u5ZEpirk1uhlPVA19tflhvnW1g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="module">
+      import { getArticle, deleteArticle } from "./article.js";
+
+      const params = new URLSearchParams(location.search);
+      const id = params.get("id");
+
+      console.log(location.search);
+
+      // console.log(id);
+      const result = await getArticle(id);
+      console.log(result);
+
+      const idData = document.querySelector(".id-data");
+      const titleData = document.querySelector(".title-data");
+      const contentData = document.querySelector(".content-data");
+      const createdAtData = document.querySelector(".created-at-data");
+      const updatedAtData = document.querySelector(".updated-at-data");
+      const updateLink = document.querySelector(".update-link");
+      const deleteBtn = document.querySelector(".delete-btn");
+      console.log(result.createdAt.seconds);
+      // 외부 라이브러리 day.js 사용
+      const parsedCreatedAt = new Date(result.createdAt.seconds * 1000);
+      // console.log(parsedCreatedAt);
+      const parsedUpdatedAt = new Date(result.updatedAt.seconds * 1000);
+
+      idData.textContent = result.id;
+      titleData.textContent = result.title;
+      contentData.textContent = result.content;
+      // createdAtData.textContent = result.createdAt;
+
+      // console.log(parsedCreatedAt);
+      createdAtData.textContent = dayjs(parsedCreatedAt).format(
+        "YYYY.MM.DD HH:mm:ss"
+      );
+      updatedAtData.textContent = dayjs(parsedUpdatedAt).format(
+        "YYYY.MM.DD HH:mm:ss"
+      );
+      // p73 현재 문서의 id를 쿼리로 전달
+      updateLink.href = `./update.html?id=${result.id}`;
+      deleteBtn.addEventListener("click", async () => {
+        const isConfirmed = confirm("삭제하시겠습니까?");
+        if (!isConfirmed) return;
+
+        try {
+          const errorCode = await deleteArticle(id);
+          if (errorCode) {
+            throw new Error(`Error: ${errorCode}`);
+          }
+          alert("삭제 성공");
+          location.href = "./list.html";
+        } catch (error) {
+          console.error("Error deleting article:", error);
+          alert("삭제 실패. 다시 시도해 주세요.");
+        }
+      });
+    </script>
+  </body>
+</html>

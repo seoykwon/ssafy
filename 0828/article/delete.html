@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <h1>게시글 삭제</h1>
+    <div>
+      <p>게시글을 삭제하시겠습니까?</p>
+      <button class="delete-btn">예</button>
+      <a href="./list.html">아니오</a>
+    </div>
+
+    <script type="module">
+      import { deleteArticle } from "./article.js";
+
+      const params = new URLSearchParams(location.search);
+      const id = params.get("id");
+      const deleteConfirmBtn = document.querySelector(".delete-btn");
+
+      deleteConfirmBtn.addEventListener("click", async () => {
+        const isConfirmed = confirm("삭제하시겠습니까?");
+        if (!isConfirmed) return;
+
+        try {
+          const errorCode = await deleteArticle(id);
+          if (errorCode) {
+            throw new Error(`Error: ${errorCode}`);
+          }
+          alert("삭제 성공");
+          location.href = "./list.html";
+        } catch (error) {
+          console.error("Error deleting article:", error);
+          alert("삭제 실패. 다시 시도해 주세요.");
+        }
+      });
+    </script>
+  </body>
+</html>

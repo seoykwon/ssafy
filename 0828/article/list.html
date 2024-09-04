@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      import { getArticles, getArticle } from "./article.js";
+
+      console.log(articles);
+
+      const params = new URLSearchParams(location.search);
+      const id = params.get("id");
+      const result = await getArticle(id);
+      console.log(result);
+    </script>
+
+    <h1>게시글 목록</h1>
+    <ul class="article-ul">
+      <!-- <li>
+        <div>
+          <span>id: </span>
+          <span class="id-data">
+            <a href="#">id</a>
+          </span>
+        </div>
+        <div>
+          <span>title: </span>
+          <span class="title-data">title</span>
+        </div>
+      </li>
+
+      <li>
+        <div>
+          <span>id: </span>
+          <span class="id-data">
+            <a href="#">id</a>
+          </span>
+        </div>
+        <div>
+          <span>title: </span>
+          <span class="title-data">title</span>
+        </div>
+      </li>
+
+      <li>
+        <div>
+          <span>id: </span>
+          <span class="id-data">
+            <a href="#">id</a>
+          </span>
+        </div>
+        <div>
+          <span>title: </span>
+          <span class="title-data">title</span>
+        </div>
+      </li> -->
+    </ul>
+
+    <div>
+      <a href="./create.html">게시글 생성</a>
+    </div>
+
+    <script type="module">
+      // module이 있어야지만 import가 동작
+      // top level await을 지원한다.
+      import { getArticles } from "./article.js";
+      console.log(getArticles);
+
+      const articles = await getArticles();
+      console.log(articles);
+
+      const articleUl = document.querySelector(".article-ul");
+
+      const articleComponents = articles.reduce((acc, article) => {
+        console.log(article);
+        acc =
+          acc +
+          `
+          <li>
+          <div>
+          <span>id: </span>f
+          <span class="id-data">
+          <a href="./detail.html?id=${article.id}">${article.id}</a>
+          </span>
+          </div>
+          <div>
+          <span>title: </span>
+          <span class="title-data">${article.title}</span>
+          </div>
+          </li>
+        `;
+
+        return acc;
+      }, "");
+
+      articleUl.insertAdjacentHTML("beforeend", articleComponents);
+      console.log(articleComponents);
+    </script>
+  </body>
+</html>
