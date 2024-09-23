@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+    unsigned char a = 0b11110101;
+
+    // MSB와 LSB 추출
+    unsigned char msb = (a >> 7) & 0b1; // MSB 추출 (7번째 비트)
+    unsigned char lsb = a & 0b1;        // LSB 추출 (0번째 비트)
+
+    // MSB와 LSB를 합쳐서 msb_lsb에 저장
+    unsigned char msb_lsb = (msb << 1) | lsb; // msb를 1비트 왼쪽으로 이동 후 lsb와 OR
+
+    // 결과 출력
+    printf("msb: %u, lsb: %u, msb_lsb: %u\n", msb, lsb, msb_lsb);
+
+    return 0;
+}
+
+msb: 1, lsb: 1, msb_lsb: 3

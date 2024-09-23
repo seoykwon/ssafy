@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    unsigned char a = 0b11110101; // 초기값 설정
+
+    // 5번 비트 값 추출
+    unsigned char b5 = (a >> 5) & 0b1; // 5번 비트를 추출 (0b1로 마스킹)
+
+    // 0번 비트 값 추출
+    unsigned char b3 = (a >> 0) & 0b1; // 0번 비트를 추출 (0b1로 마스킹)
+
+    // 6~7번 비트 값 추출
+    unsigned char b67 = (a >> 6) & 0b11; // 6~7번 비트를 추출 (0b11로 마스킹)
+
+    // 결과 출력
+    printf("b5: %x\n", b5);
+    printf("b3: %x\n", b3);
+    printf("b67: %x\n", b67); // 2비트를 합쳐서 출력
+
+    return 0;
+}
+
+b5: 1
+b3: 1
+b67: 3
