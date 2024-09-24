@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+void insertStr(char* dest, char src[10], char append[4], int idx){
+	char substr[10] = {'\0',};
+
+	strncpy(substr, src, idx);
+
+	strcat(dest, substr);
+	strcat(dest, append);
+
+//	char* substr2 = (char *)malloc(10 * sizeof(char));
+	char substr2[10] = {'\0',};
+
+//	printf("%d\n", sizeof(*src));
+
+	strncpy(substr2, src+2, 10 - idx);
+
+	strcat(dest, substr2);
+
+}
+
+int main(){
+	char vect[10] = "ZXXVQ";
+	char result[10] = {'\0',};
+	insertStr(result, vect, "ABC", 2);
+	printf("%s", result);
+}
